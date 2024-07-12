@@ -15,3 +15,26 @@
 
 // IT MUST BE EXPORTED TO...
 // The app
+
+const e = require("express");
+// require in the express app
+
+const {
+  modelFunction,
+  anotherModelFunction,
+} = require("../model/model-example");
+// functions are required in from the model
+
+// Request and response handling and error handling might look like...
+getTeams = (req, res, next) => {
+  selectTeams()
+    .then((teams) => {
+      res.status(200).send({ teams });
+    })
+    .catch((err) => {
+      next(err);
+    });
+};
+
+module.exports = { controllerFunction, anotherControllerFunction };
+// These functions need to be made available to the app
