@@ -16,9 +16,6 @@
 // IT MUST BE EXPORTED TO...
 // The app
 
-const e = require("express");
-// require in the express app
-
 const {
   modelFunction,
   anotherModelFunction,

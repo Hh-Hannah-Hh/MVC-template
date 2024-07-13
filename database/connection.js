@@ -1,14 +1,13 @@
-// WHAT IS IT?
-//
+const { Pool } = require("pg");
 
-// HOW DOES IT WORK?
-//
+const ENV = process.env.NODE_ENV || "development";
 
-// WHAT DOES IT DO?
-//
+const path = `${__dirname}/../.env.${ENV}`;
 
-// IT NEEDS ACCESS TO...
-//
+require("dotenv").config({ path });
 
-// IT MUST BE EXPORTED TO...
-//
+if (!process.env.PGDATABASE) {
+  throw new Error("PGDATABASE not set");
+}
+
+module.exports = new Pool();

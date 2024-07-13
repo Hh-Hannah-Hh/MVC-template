@@ -1,22 +1,25 @@
  
+  // Type the key into the terminal to run any of these - acts like short-hand
   "scripts": {
-    "setup-dbs": "psql -f db/setup.sql",
-    "seed": "node ./db/run-seed.js",
-    "test": "jest",
-    "dev": "nodemon listen.js"
+    "setup-dbs": "psql -f db/setup.sql", <<< post script <<< <<< file location of.sql file
+    "seed": "node ./db/run-seed.js", <<< file location of file that hold code for running seed
+    "test": "jest", <<< allows us to test our code
+    "dev": "nodemon listen.js" <<< nodemon means we don't have to stop/start server <<< file location of listen file
+  },
+  // These are additional packages required to run the code
+    "dependencies": {
+    "pg": "^8.7.3", <<< postgress is for database management
+    "pg-format": "^1.0.4" <<< helps prevent SQL injection and helps with formatting dynamic SQL queries
+    "express": "^4.18.1", <<< app for dealing with GET POST PUT etc. - methods
   },
 
-    "dependencies": {
-    "pg": "^8.7.3",
-    "pg-format": "^1.0.4"
-    "express": "^4.18.1",
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.4",
-    "dotenv": "^16.4.5",
-    "jest": "^28.1.3",
-    "supertest": "^6.2.4"
-     "jest-sorted": "^1.0.15"
+  // These are additional packages required to run the code that only the developer will need
+    "devDependencies": {
+    "nodemon": "^3.1.4", <<< nodemon allows us toi make edits without stopping/starting the server
+    "dotenv": "^16.4.5", <<< allows different environments to support testing with smaller data sample
+    "jest": "^28.1.3", <<< for testing our code
+    "supertest": "^6.2.4" <<< for testing for mocks - acts as a server for us
+    "jest-sorted": "^1.0.15" <<< allows us to run tests for how data is organised as part of a db query
   }
 
 > 24
