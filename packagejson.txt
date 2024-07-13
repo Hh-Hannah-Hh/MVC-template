@@ -1,0 +1,32 @@
+ 
+  "scripts": {
+    "setup-dbs": "psql -f db/setup.sql",
+    "seed": "node ./db/run-seed.js",
+    "test": "jest",
+    "dev": "nodemon listen.js"
+  },
+
+    "dependencies": {
+    "pg": "^8.7.3",
+    "pg-format": "^1.0.4"
+    "express": "^4.18.1",
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4",
+    "dotenv": "^16.4.5",
+    "jest": "^28.1.3",
+    "supertest": "^6.2.4"
+     "jest-sorted": "^1.0.15"
+  }
+
+> 24
+
+  "jest": {
+  "setupFilesAfterEnv": ["jest-sorted"]
+}
+
+< 23
+
+"jest": {
+  "setupTestFrameworkScriptFile": "jest-sorted"
+}
